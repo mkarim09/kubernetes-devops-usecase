@@ -116,6 +116,7 @@ on:
   push:
     branches: [ "main" ]
     
+
 jobs:
   build:
     runs-on: self-hosted
