@@ -110,10 +110,12 @@ Pipeline Overview:
 
 Pipeline Configuration:
 
-name: CICD By DevOps Shack
+name: CICD 
+
 on:
   push:
     branches: [ "main" ]
+    
 jobs:
   build:
     runs-on: self-hosted
