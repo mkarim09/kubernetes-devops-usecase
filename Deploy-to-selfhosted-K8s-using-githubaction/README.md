@@ -34,74 +34,11 @@ Inside Master Node
 
 Creating Service Account:
 
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: githubaction
-  namespace: webapps
-
 Create Role:
-
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: app-role
-  namespace: webapps
-rules:
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: app-role
-  namespace: webapps
-rules:
-- apiGroups:
-  - ""
-  - apps
-  - autoscaling
-  - batch
-  - extensions
-  - policy
-  - rbac.authorization.k8s.io
-  resources:
-  - pods
-  - componentstatuses
-  - configmaps
-  - daemonsets
-  - deployments
-  - events
-  - endpoints
-  - horizontalpodautoscalers
-  - ingress
-  - jobs
-  - limitranges
-  - namespaces
-  - nodes
-  - pods
-  - persistentvolumes
-  - persistentvolumeclaims
-  - resourcequotas
-  - replicasets
-  - replicationcontrollers
-  - serviceaccounts
-  - services
-  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
 
 Bind the role to service account
 
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: app-rolebinding
-  namespace: webapps
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: app-role
-subjects:
-- kind: ServiceAccount
-  name: githubaction
-  namespace: webapps
 
 Generate token using service account in the namespace
 [Click here](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#:~:text=To%20create%20a%20non%2Dexpiring,with%20that%20generated%20token%20data.)
