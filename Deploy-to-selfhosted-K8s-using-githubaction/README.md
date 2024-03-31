@@ -109,12 +109,11 @@ Pipeline Overview:
 • Applies deployment and service configuration from deploymentservice.yaml file to deploy the application to Kubernetes namespace webapps.
 
 Pipeline Configuration:
-name: CICD By DevOps Shack
 
+name: CICD By DevOps Shack
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: self-hosted
